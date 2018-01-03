@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Sijt&#39;s blog</title>
+  
+  <subtitle>I&#39;m a beauty.</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://midoriruka.github.io/"/>
+  <updated>2017-09-25T15:21:03.008Z</updated>
+  <id>https://midoriruka.github.io/</id>
+  
+  <author>
+    <name>Sijt</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://midoriruka.github.io/2017/09/25/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89/"/>
+    <id>https://midoriruka.github.io/2017/09/25/Python学习笔记（2）/</id>
+    <published>2017-09-25T15:20:39.478Z</published>
+    <updated>2017-09-25T15:21:03.008Z</updated>
+    
+    <content type="html"><![CDATA[<p>###Python学习笔记（2）</p><p>####Python函数</p><blockquote><p> 可以重复调用的代码段，学过其他语言的应该都很清楚</p></blockquote><p>定义格式：</p><pre><code>不带参数：def print_hello():    print &quot;hello&quot;调用：print_hello()带参数：。。。（不一一记录，跟其他语言差不多）带默认参数的：。。。不定长参数：def print_args(a,*args):    print a    for s in args        print s    return参数次序可以变：。。。</code></pre><h4 id="python类"><a href="#python类" class="headerlink" title="python类"></a>python类</h4><h5 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h5><p>面向对象即class ，类 。一个是类，一个是类实例，通俗讲人类就是一个类，每个人就是一个实例，人类又是哺乳动物，是动物的子类，这就是面向对象中继承的概念。动物会自带一些属性，一些属性相同，但是子类可能有其他特有的属性和方法。</p><h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><p>用class去定义一个类，如果没有指定父类，默认继承object类。</p><pre><code>class Human(object):      pass</code></pre><p>这样定义了一个类，即Human</p><h5 id="类属性"><a href="#类属性" class="headerlink" title="类属性"></a>类属性</h5><p>所有类都有的，并不是某个实例特有的，是与类绑定的，不是和实例绑定的，比如胎生是人类都有的属性，并不是某个人特有的</p><pre><code>class Human(object):      taisheng=True</code></pre><h5 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h5><pre><code>class Human(object):   def __init__(self,name);（构造函数，相当于初始化）       self.name=name Human_a=Human(&quot;sijt&quot;)(实例化)  </code></pre><p> name属性 独立于人类，是Human_a这个人特有的 ，与实例绑定的，所以叫实例属性，实例属性相对于每个实例是不一样的</p><pre><code>class Human(object):   passHuman_a=Human()Human_a.name=&apos;a&apos;Human_b.name=&apos;b&apos;(a的名字和b的名字不一样的，是实例属性)</code></pre><ul><li>实例属性可以在实例创建后任意时间设定</li><li>一般放在构造函数_ <em>init</em> _里</li></ul><h5 id="类方法"><a href="#类方法" class="headerlink" title="类方法"></a>类方法</h5><p>类方法可以看做一种类属性，第一个参数是self，表示调用这个类方法的实例</p><pre><code>class Human(object):  def __init__(self,name):     self.name=name  def walk(self):     print self.name+&quot;is walking&quot;human_a = Human(&quot;alan&quot;)human_a.walk()</code></pre><h5 id="访问控制"><a href="#访问控制" class="headerlink" title="访问控制"></a>访问控制</h5><p>将name这个属性设为私有，前面加两个下划线<em> </em>，还是想访问的话，加个get接口</p><pre><code>class Human(object):   def __init__(self,name):      self.__name=name   def walk(self):     print self.name+&quot;is walking&quot;   def get_name(self):       return self.__namehuman_a = Human(&quot;alan&quot;)human_a.get_name()human_a.__name</code></pre><p>如果想改这个属性，要加set接口</p><pre><code>class Human(object):   def __init__(self,name):      self.__name=name   def walk(self):     print self.name+&quot;is walking&quot;   def get_name(self):       return self.__name   def set_name(self,name):      self.__name=name     human_a=Human(&quot;a&quot;) print human_a.set_name(&quot;b&quot;)</code></pre><p>这么写并不是画蛇添足，可以保护属性，直接属性外露可能带来意想不到的后果，可以通过加接口的方式加以控制，比如可以控制name的长</p><pre><code>class Human(object):   def __init__(self,name):      self.__name=name   def walk(self):     print self.name+&quot;is walking&quot;   def get_name(self):       return self.__name   def set_name(self,name):      if(len(name&lt;=18))         self.__name=name     human_a=Human(&quot;a&quot;) print human_a.set_name(&quot;b&quot;)</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;###Python学习笔记（2）&lt;/p&gt;
+&lt;p&gt;####Python函数&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt; 可以重复调用的代码段，学过其他语言的应该都很清楚&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;定义格式：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;不带参数：
+def pr
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://midoriruka.github.io/2017/09/19/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://midoriruka.github.io/2017/09/19/python学习笔记/</id>
+    <published>2017-09-19T13:59:37.168Z</published>
+    <updated>2017-09-20T14:25:10.876Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Python学习笔记（1）"><a href="#Python学习笔记（1）" class="headerlink" title="Python学习笔记（1）"></a>Python学习笔记（1）</h3><p>============================</p><blockquote><p>主要是看的雨敲窗的视频，视频传送门：<a href="http://www.bilibili.com/video/av5236569/" target="_blank" rel="external">（点击此处）</a></p><h4 id="Python变量"><a href="#Python变量" class="headerlink" title="Python变量"></a>Python变量</h4><p>python不用事先声明变量，赋值过程中就包含了变量声明和定义的过程<br>用“=”赋值，左边的是变量名，右边是变量的值</p></blockquote><p><strong>1.数字：</strong></p><blockquote><p>整数：int_var=1<br>长整数：long_var=1000L<br>浮点型：float_var=1.0<br>复数：用的不多，需要时可自行查资料。</p></blockquote><pre><code>a=1b=1000Lc=1.0print aprint bprint c</code></pre><p><strong>2.字符串：</strong></p><pre><code>str=&apos;Hello World!&apos;print str #输出完整的字符print str[0] #输出字符串中的第一个字符print str[2:5] #输出字符串中第三个至第五个之间的字符（左闭右开原则）print str[2:] #输出从第三个字符开始一直到最后的字符串print str*2 #输出字符串两次print str+&quot;TEST&quot; #输出连接的字符串（即加上+后面的字符串）</code></pre><p><strong>3.列表：</strong></p><pre><code>list_a=[&quot;str&quot;,1,[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;],4]list_b=[&quot;hello&quot;]print list_a[0]....同字符串类似print list_a + list</code></pre><p><strong>4.元组：可以视为不可变列表，在赋值后不可二次更改了</strong></p><pre><code>tuple_a=[&quot;str&quot;,1,[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;],4]tuple_b=[&quot;hello&quot;]print tuple_a[0]....同字符串类似print tuple_a + tuple_b</code></pre><p><strong>5.字典：类似于c++语言的Map，key-value键值对的集合，无序的容器</strong></p><pre><code>dict_a={    &quot;name&quot;:&quot;sjt&quot;,#冒号左边是key,右边是value    &quot;age&quot;:24,    1:&quot;level_1&quot;}print dict_a[&quot;name&quot;]print dict_a[&quot;age&quot;]print dict_a[1]print &quot;name&quot; in dict_a #输出trueprint &quot;xxx&quot; in dict_a #输出falseprint dict_a.keys()print dict_a.values()print dict_a.items() #items会输出字典中所有的元素，包括keys和values</code></pre><h4 id="python运算符"><a href="#python运算符" class="headerlink" title="python运算符"></a>python运算符</h4><blockquote><p>算术运算符：+，-，<em>，/，%（取模），**（幂），//（整除）<br>比较运算符：==，!=(&lt;&gt;不等于)，&gt;,&lt;,&gt;=，&lt;=,<br>赋值运算符：=(赋值),+=(a+=b相当于a=a+b),-=,</em>=,/=,%=,**=,//=<br>逻辑运算符：and（与），or（或），not（非）<br>成员运算符：in,not in(判断是否在指定容器中，返回true或false)<br>身份运算符：is，not is（判断两个变量是否引用自同一个对象，返回true或false）<br>位运算符：&amp;（与），|（或），^（异或），~（取反），&lt;&lt;(左移),&gt;&gt;（右移）</p></blockquote><h4 id="python语句"><a href="#python语句" class="headerlink" title="python语句"></a>python语句</h4><p>1.if语句</p><pre><code>a=1if a==1;   print &quot;a==1&quot;else:   print &quot;a!=1&quot;</code></pre><p>2.for语句：用来遍历容器，或者执行重复性代码</p><h5 id="遍历容器："><a href="#遍历容器：" class="headerlink" title="遍历容器："></a>遍历容器：</h5><pre><code>list_a=[1,2,3]for i in list_a;   print i</code></pre><h5 id="执行重复性代码："><a href="#执行重复性代码：" class="headerlink" title="执行重复性代码："></a>执行重复性代码：</h5><pre><code>for i in range(0,10);   print i</code></pre><h5 id="while语句："><a href="#while语句：" class="headerlink" title="while语句："></a>while语句：</h5><pre><code>a=1while a!=10;   print a   a +=1</code></pre><h5 id="break语句：直接跳出循环"><a href="#break语句：直接跳出循环" class="headerlink" title="break语句：直接跳出循环"></a>break语句：直接跳出循环</h5><pre><code>for i in range(0,10);  for j in range(0,10);       print i,j       if j==5;       break</code></pre><h5 id="continua语句：直接进入下一个循环"><a href="#continua语句：直接进入下一个循环" class="headerlink" title="continua语句：直接进入下一个循环"></a>continua语句：直接进入下一个循环</h5><pre><code>list_a=[1,2,3]for i in list_a;   print i   if i==2;     continue   print &quot;~~&quot;</code></pre><h4 id="Python中几种常见的容器（数据结构）"><a href="#Python中几种常见的容器（数据结构）" class="headerlink" title="Python中几种常见的容器（数据结构）"></a>Python中几种常见的容器（数据结构）</h4><h5 id="1-list-python内置的一种数据结构；有序；可更改（添加、删除）"><a href="#1-list-python内置的一种数据结构；有序；可更改（添加、删除）" class="headerlink" title="1.list:python内置的一种数据结构；有序；可更改（添加、删除）"></a>1.list:python内置的一种数据结构；有序；可更改（添加、删除）</h5><pre><code>game=[&quot;wangzherongyao&quot;,&quot;yingyangshi&quot;,&quot;lol&quot;] #声明len(game) #获取长度game[0] #获取元素</code></pre><h6 id="list增加元素："><a href="#list增加元素：" class="headerlink" title="list增加元素："></a>list增加元素：</h6><pre><code>（1）末尾增加：game.append(&quot;wow&quot;)（2）指定位置插入：game.insert(2,&quot;wow&quot;)</code></pre><h6 id="list删除元素："><a href="#list删除元素：" class="headerlink" title="list删除元素："></a>list删除元素：</h6><pre><code>（1）删除末尾元素：game.pop()（2）删除指定位置元素：game.pop(1)</code></pre><h5 id="2-tuple元组：内置的一种数据结构，有序，不可更改，赋值时决定所有元素"><a href="#2-tuple元组：内置的一种数据结构，有序，不可更改，赋值时决定所有元素" class="headerlink" title="2.tuple元组：内置的一种数据结构，有序，不可更改，赋值时决定所有元素"></a>2.tuple元组：内置的一种数据结构，有序，不可更改，赋值时决定所有元素</h5><pre><code>game=(&quot;wangzherongyao&quot;,&quot;yingyangshi&quot;,&quot;lol&quot;) #声明len(game) #获取长度game[0] #获取元素</code></pre><h5 id="3-dict字典：内置的一种数据结构；无序；可更改"><a href="#3-dict字典：内置的一种数据结构；无序；可更改" class="headerlink" title="3.dict字典：内置的一种数据结构；无序；可更改"></a>3.dict字典：内置的一种数据结构；无序；可更改</h5><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://leanote.com/api/file/getImage?fileId=58b2a729ab64410ab8003e51" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><pre><code>name={1:&quot;a&quot;;2:&quot;b&quot;;3:&quot;c&quot;;4:&quot;d&quot;} #声明name[1] #查找 （结果：&apos;a&apos;）5 in name #确定5这个key是否在name中（结果:false）name.get(5) #测试5是否在name中，不在会返回nonename[5]=&quot;e&quot; #加一条记录name.pop(1) #删除len(name) #元素个数name.keys() #获取所有keyname。values() #获取所有的valuesname.item() #获取所有的键值对</code></pre><h5 id="4-set-内置数据结构；无序；可更改，set可以视为没有values的dict，只有key，一般用作去重或者集合求交-合并等。"><a href="#4-set-内置数据结构；无序；可更改，set可以视为没有values的dict，只有key，一般用作去重或者集合求交-合并等。" class="headerlink" title="4.set:内置数据结构；无序；可更改，set可以视为没有values的dict，只有key，一般用作去重或者集合求交/合并等。"></a>4.set:内置数据结构；无序；可更改，set可以视为没有values的dict，只有key，一般用作去重或者集合求交/合并等。</h5><pre><code>a=set([&apos;lucy&apos;,&apos;lily&apos;]) b=set([&apos;lily&apos;,&apos;anna&apos;]) #声明a &amp; b #求并 （结果:set([&apos;lily&apos;])）a | b #求交 （结果:set([&apos;lucy&apos;,&apos;lily&apos;,&apos;anna&apos;])）a.add(&apos;marry&apos;) #增加a.remove(&apos;lucy&apos;) #删除</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Python学习笔记（1）&quot;&gt;&lt;a href=&quot;#Python学习笔记（1）&quot; class=&quot;headerlink&quot; title=&quot;Python学习笔记（1）&quot;&gt;&lt;/a&gt;Python学习笔记（1）&lt;/h3&gt;&lt;p&gt;==========================
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
