@@ -229,16 +229,6 @@
           </a>
         </li>
       
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
-            
-            公益404
-          </a>
-        </li>
-      
 
       
     </ul>
@@ -430,7 +420,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://midoriruka.github.io/2017/09/25/Python学习笔记（2）/">
+    <link itemprop="mainEntityOfPage" href="https://midoriruka.github.io/2018/01/21/python学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sijt">
@@ -449,7 +439,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/25/Python学习笔记（2）/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2018/01/21/python学习笔记/" itemprop="url">Python学习笔记(一)</a></h1>
         
 
         <div class="post-meta">
@@ -461,8 +451,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-25T23:20:39+08:00">
-                2017-09-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-21T16:55:31+08:00">
+                2018-01-21
               </time>
             
 
@@ -501,220 +491,7 @@
       
         
           
-            <p>###Python学习笔记（2）</p>
-<p>####Python函数</p>
-<blockquote>
-<p> 可以重复调用的代码段，学过其他语言的应该都很清楚</p>
-</blockquote>
-<p>定义格式：</p>
-<pre><code>不带参数：
-def print_hello():
-    print &quot;hello&quot;
-调用：
-print_hello()
-
-带参数：
-。。。（不一一记录，跟其他语言差不多）
-带默认参数的：
-。。。
-不定长参数：
-def print_args(a,*args):
-    print a
-    for s in args
-        print s
-    return
-参数次序可以变：
-。。。
-</code></pre><h4 id="python类"><a href="#python类" class="headerlink" title="python类"></a>python类</h4><h5 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h5><p>面向对象即class ，类 。一个是类，一个是类实例，通俗讲人类就是一个类，每个人就是一个实例，人类又是哺乳动物，是动物的子类，这就是面向对象中继承的概念。动物会自带一些属性，一些属性相同，但是子类可能有其他特有的属性和方法。</p>
-<h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><p>用class去定义一个类，如果没有指定父类，默认继承object类。</p>
-<pre><code>class Human(object):
-      pass
-</code></pre><p>这样定义了一个类，即Human</p>
-<h5 id="类属性"><a href="#类属性" class="headerlink" title="类属性"></a>类属性</h5><p>所有类都有的，并不是某个实例特有的，是与类绑定的，不是和实例绑定的，比如胎生是人类都有的属性，并不是某个人特有的</p>
-<pre><code>class Human(object):
-      taisheng=True
-</code></pre><h5 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h5><pre><code>class Human(object):
-   def __init__(self,name);（构造函数，相当于初始化）
-       self.name=name
- Human_a=Human(&quot;sijt&quot;)(实例化)  
-</code></pre><p> name属性 独立于人类，是Human_a这个人特有的 ，与实例绑定的，所以叫实例属性，实例属性相对于每个实例是不一样的</p>
-<pre><code>class Human(object):
-   pass
-Human_a=Human()
-Human_a.name=&apos;a&apos;
-Human_b.name=&apos;b&apos;
-(a的名字和b的名字不一样的，是实例属性)
-</code></pre><ul>
-<li>实例属性可以在实例创建后任意时间设定</li>
-<li>一般放在构造函数_ <em>init</em> _里</li>
-</ul>
-<h5 id="类方法"><a href="#类方法" class="headerlink" title="类方法"></a>类方法</h5><p>类方法可以看做一种类属性，第一个参数是self，表示调用这个类方法的实例</p>
-<pre><code>class Human(object):
-  def __init__(self,name):
-     self.name=name
-  def walk(self):
-     print self.name+&quot;is walking&quot;
-human_a = Human(&quot;alan&quot;)
-human_a.walk()
-</code></pre><h5 id="访问控制"><a href="#访问控制" class="headerlink" title="访问控制"></a>访问控制</h5><p>将name这个属性设为私有，前面加两个下划线<em> </em>，还是想访问的话，加个get接口</p>
-<pre><code>class Human(object):
-   def __init__(self,name):
-      self.__name=name
-   def walk(self):
-     print self.name+&quot;is walking&quot;
-   def get_name(self):
-       return self.__name
-
-human_a = Human(&quot;alan&quot;)
-human_a.get_name()
-human_a.__name
-</code></pre><p>如果想改这个属性，要加set接口</p>
-<pre><code>class Human(object):
-   def __init__(self,name):
-      self.__name=name
-   def walk(self):
-     print self.name+&quot;is walking&quot;
-   def get_name(self):
-       return self.__name
-   def set_name(self,name):
-      self.__name=name    
- human_a=Human(&quot;a&quot;)
- print human_a.set_name(&quot;b&quot;)
-</code></pre><p>这么写并不是画蛇添足，可以保护属性，直接属性外露可能带来意想不到的后果，可以通过加接口的方式加以控制，比如可以控制name的长</p>
-<pre><code>class Human(object):
-   def __init__(self,name):
-      self.__name=name
-   def walk(self):
-     print self.name+&quot;is walking&quot;
-   def get_name(self):
-       return self.__name
-   def set_name(self,name):
-      if(len(name&lt;=18))
-         self.__name=name    
- human_a=Human(&quot;a&quot;)
- print human_a.set_name(&quot;b&quot;)
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://midoriruka.github.io/2017/09/19/python学习笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sijt">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/eita.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sijt's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/19/python学习笔记/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-19T21:59:37+08:00">
-                2017-09-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <title>Python学习笔记</title>
-
-<h1 id="Python学习笔记（1）"><a href="#Python学习笔记（1）" class="headerlink" title="Python学习笔记（1）"></a>Python学习笔记（1）</h1><blockquote>
+            <h1 id="Python学习笔记"><a href="#Python学习笔记" class="headerlink" title="Python学习笔记"></a>Python学习笔记</h1><blockquote>
 <p>主要是看的雨敲窗的视频，视频传送门：<a href="http://www.bilibili.com/video/av5236569/" target="_blank" rel="external">（点击此处）</a></p>
 </blockquote>
 <p>Python变量</p>
@@ -865,6 +642,215 @@ a.remove(&apos;lucy&apos;) #删除
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://midoriruka.github.io/2018/01/21/Python学习笔记（2）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sijt">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/eita.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sijt's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/21/Python学习笔记（2）/" itemprop="url">Python学习笔记(二)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-21T16:55:31+08:00">
+                2018-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Python学习笔记（2）"><a href="#Python学习笔记（2）" class="headerlink" title="Python学习笔记（2）"></a>Python学习笔记（2）</h3><h4 id="Python函数"><a href="#Python函数" class="headerlink" title="Python函数"></a>Python函数</h4><blockquote>
+<p> 可以重复调用的代码段，学过其他语言的应该都很清楚</p>
+</blockquote>
+<p>定义格式：</p>
+<pre><code>不带参数：
+def print_hello():
+    print &quot;hello&quot;
+调用：
+print_hello()
+
+带参数：
+。。。（不一一记录，跟其他语言差不多）
+带默认参数的：
+。。。
+不定长参数：
+def print_args(a,*args):
+    print a
+    for s in args
+        print s
+    return
+参数次序可以变：
+。。。
+</code></pre><h4 id="python类"><a href="#python类" class="headerlink" title="python类"></a>python类</h4><h5 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h5><p>面向对象即class ，类 。一个是类，一个是类实例，通俗讲人类就是一个类，每个人就是一个实例，人类又是哺乳动物，是动物的子类，这就是面向对象中继承的概念。动物会自带一些属性，一些属性相同，但是子类可能有其他特有的属性和方法。</p>
+<h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><p>用class去定义一个类，如果没有指定父类，默认继承object类。</p>
+<pre><code>class Human(object):
+      pass
+</code></pre><p>这样定义了一个类，即Human</p>
+<h5 id="类属性"><a href="#类属性" class="headerlink" title="类属性"></a>类属性</h5><p>所有类都有的，并不是某个实例特有的，是与类绑定的，不是和实例绑定的，比如胎生是人类都有的属性，并不是某个人特有的</p>
+<pre><code>class Human(object):
+      taisheng=True
+</code></pre><h5 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h5><pre><code>class Human(object):
+   def __init__(self,name);（构造函数，相当于初始化）
+       self.name=name
+ Human_a=Human(&quot;sijt&quot;)(实例化)  
+</code></pre><p> name属性 独立于人类，是Human_a这个人特有的 ，与实例绑定的，所以叫实例属性，实例属性相对于每个实例是不一样的</p>
+<pre><code>class Human(object):
+   pass
+Human_a=Human()
+Human_a.name=&apos;a&apos;
+Human_b.name=&apos;b&apos;
+(a的名字和b的名字不一样的，是实例属性)
+</code></pre><ul>
+<li>实例属性可以在实例创建后任意时间设定</li>
+<li>一般放在构造函数_ <em>init</em> _里</li>
+</ul>
+<h5 id="类方法"><a href="#类方法" class="headerlink" title="类方法"></a>类方法</h5><p>类方法可以看做一种类属性，第一个参数是self，表示调用这个类方法的实例</p>
+<pre><code>class Human(object):
+  def __init__(self,name):
+     self.name=name
+  def walk(self):
+     print self.name+&quot;is walking&quot;
+human_a = Human(&quot;alan&quot;)
+human_a.walk()
+</code></pre><h5 id="访问控制"><a href="#访问控制" class="headerlink" title="访问控制"></a>访问控制</h5><p>将name这个属性设为私有，前面加两个下划线<em> </em>，还是想访问的话，加个get接口</p>
+<pre><code>class Human(object):
+   def __init__(self,name):
+      self.__name=name
+   def walk(self):
+     print self.name+&quot;is walking&quot;
+   def get_name(self):
+       return self.__name
+
+human_a = Human(&quot;alan&quot;)
+human_a.get_name()
+human_a.__name
+</code></pre><p>如果想改这个属性，要加set接口</p>
+<pre><code>class Human(object):
+   def __init__(self,name):
+      self.__name=name
+   def walk(self):
+     print self.name+&quot;is walking&quot;
+   def get_name(self):
+       return self.__name
+   def set_name(self,name):
+      self.__name=name    
+ human_a=Human(&quot;a&quot;)
+ print human_a.set_name(&quot;b&quot;)
+</code></pre><p>这么写并不是画蛇添足，可以保护属性，直接属性外露可能带来意想不到的后果，可以通过加接口的方式加以控制，比如可以控制name的长</p>
+<pre><code>class Human(object):
+   def __init__(self,name):
+      self.__name=name
+   def walk(self):
+     print self.name+&quot;is walking&quot;
+   def get_name(self):
+       return self.__name
+   def set_name(self,name):
+      if(len(name&lt;=18))
+         self.__name=name    
+ human_a=Human(&quot;a&quot;)
+ print human_a.set_name(&quot;b&quot;)
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -928,7 +914,7 @@ a.remove(&apos;lucy&apos;) #删除
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
