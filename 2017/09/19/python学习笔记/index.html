@@ -74,8 +74,6 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Sijt's blog" type="application/atom+xml" />
-
 
 
 
@@ -187,7 +185,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
             Startseite
           </a>
@@ -195,11 +193,31 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
             Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Kategorien
           </a>
         </li>
       
@@ -241,7 +259,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sijt">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/eita.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -278,6 +296,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/09/19/python学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/09/19/python学习笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -404,13 +432,7 @@ game.pop(1)
 </code></pre><h5 id="2-tuple元组：内置的一种数据结构，有序，不可更改，赋值时决定所有元素"><a href="#2-tuple元组：内置的一种数据结构，有序，不可更改，赋值时决定所有元素" class="headerlink" title="2.tuple元组：内置的一种数据结构，有序，不可更改，赋值时决定所有元素"></a>2.tuple元组：内置的一种数据结构，有序，不可更改，赋值时决定所有元素</h5><pre><code>game=(&quot;wangzherongyao&quot;,&quot;yingyangshi&quot;,&quot;lol&quot;) #声明
 len(game) #获取长度
 game[0] #获取元素
-</code></pre><h5 id="3-dict字典：内置的一种数据结构；无序；可更改"><a href="#3-dict字典：内置的一种数据结构；无序；可更改" class="headerlink" title="3.dict字典：内置的一种数据结构；无序；可更改"></a>3.dict字典：内置的一种数据结构；无序；可更改</h5><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://leanote.com/api/file/getImage?fileId=58b2a729ab64410ab8003e51" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+</code></pre><h5 id="3-dict字典：内置的一种数据结构；无序；可更改"><a href="#3-dict字典：内置的一种数据结构；无序；可更改" class="headerlink" title="3.dict字典：内置的一种数据结构；无序；可更改"></a>3.dict字典：内置的一种数据结构；无序；可更改</h5><p><img src="https://leanote.com/api/file/getImage?fileId=58b2a729ab64410ab8003e51" alt=""></p>
 <pre><code>name={1:&quot;a&quot;;2:&quot;b&quot;;3:&quot;c&quot;;4:&quot;d&quot;} #声明
 name[1] #查找 （结果：&apos;a&apos;）
 5 in name #确定5这个key是否在name中（结果:false）
@@ -489,6 +511,13 @@ a.remove(&apos;lucy&apos;) #删除
           
 
   
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2017/09/19/python学习笔记/"
+           data-title="" data-url="https://midoriruka.github.io/2017/09/19/python学习笔记/">
+      </div>
+    </div>
+
+  
 
 
 
@@ -525,6 +554,10 @@ a.remove(&apos;lucy&apos;) #删除
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/images/eita.jpg"
+                alt="Sijt" />
+            
               <p class="site-author-name" itemprop="name">Sijt</p>
               <p class="site-description motion-element" itemprop="description">start from zero</p>
           </div>
@@ -534,9 +567,9 @@ a.remove(&apos;lucy&apos;) #删除
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
@@ -549,14 +582,23 @@ a.remove(&apos;lucy&apos;) #删除
           </nav>
 
           
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
-            </div>
-          
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/midoriruka" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="sjt1023@yahoo.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -602,7 +644,7 @@ a.remove(&apos;lucy&apos;) #删除
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-/images/favicon.ico"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Sijt</span>
 
@@ -733,25 +775,35 @@ a.remove(&apos;lucy&apos;) #删除
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"your-duoshuo-shortname"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
 
 
 
-	
 
 
-
-
-
-  
-
-
-
-
-
-  
 
 
 
